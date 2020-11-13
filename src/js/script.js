@@ -33,6 +33,36 @@ $(document).ready(function(){
         $('.overlay, #order').fadeIn('slow');
       })
   });
+ 
+  function valideForms(form) {  $(form).validate({
+    rules:{
+      name: {
+        required: true,
+        minlength: 2
+      },
+      phone: "required",
+      email: {
+        required: true,
+        email: true
+      }
+    },
+    messages: {
+      name: {
+        required: "пожалуйста введите свое имя",
+        minlength: jQuery.validator.format("Введите {0} символов!")
+      },
+      phone: "пожалуйста введите свой телефон",
+      email: {
+        required: "пожалуйста введите свою почту",
+        email: "неправильно введен адрес почты"
+      }
+    }
+  });
+
+  };
+  valideForms('#consultation-form');
+  valideForms('#consultation form');
+  valideForms('#order form');
 });
 
 
